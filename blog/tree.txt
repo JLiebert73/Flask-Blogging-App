@@ -1,0 +1,37 @@
+Folder PATH listing
+Volume serial number is 363E-A190
+C:.
+³   run.py
+³   tree.txt
+³   
+ÃÄÄÄinstance
+³       site.db
+³       
+ÃÄÄÄtest
+³   ³   forms.py
+³   ³   models.py
+³   ³   routes.py
+³   ³   __init__.py
+³   ³   
+³   ÃÄÄÄstatic
+³   ³       main.css
+³   ³       
+³   ÃÄÄÄtemplates
+³   ³       about.html
+³   ³       home.html
+³   ³       layout.html
+³   ³       login.html
+³   ³       register.html
+³   ³       
+³   ÀÄÄÄ__pycache__
+³           forms.cpython-311.pyc
+³           models.cpython-311.pyc
+³           routes.cpython-311.pyc
+³           __init__.cpython-311.pyc
+³           
+ÀÄÄÄ__pycache__
+        forms.cpython-311.pyc
+        models.cpython-311.pyc
+        run.cpython-311.pyc
+        test.cpython-311.pyc
+        
