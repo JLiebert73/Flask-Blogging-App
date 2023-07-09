@@ -1,0 +1,47 @@
+C:.
+│   run.py
+│
+├───instance
+│       site.db
+│
+├───test
+│   │   forms.py
+│   │   models.py
+│   │   routes.py
+│   │   __init__.py
+│   │
+│   ├───static
+│   │   │   main.css
+│   │   │
+│   │   └───Images
+│   │           default.jpg  
+│   ├───templates
+│   │       about.html
+│   │       account.html
+│   │       home.html
+│   │       layout.html
+│   │       login.html
+│   │       other_account.html
+│   │       register.html
+│   │       search.html
+│   │       update.html
+│   │       view_post.html
+│   │       write.html
+│   │
+│   ├───users
+│   │       posts.py
+│   │       routes.py
+│   │       utils.py
+│   │       __init__.py
+│   │
+│   └───__pycache__
+│           forms.cpython-311.pyc
+│           models.cpython-311.pyc
+│           routes.cpython-311.pyc
+│           __init__.cpython-311.pyc
+│
+└───__pycache__
+        forms.cpython-311.pyc
+        models.cpython-311.pyc
+        run.cpython-311.pyc
+        test.cpython-311.pyc
