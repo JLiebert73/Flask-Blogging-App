@@ -81,14 +81,14 @@ Search: You can perform search on the basis of username and blog title.
 FlaskPress relies on the following dependencies:
 
 Flask: A micro web framework for Python that provides the core functionality of FlaskPress.
-Flask-WTF: Integrates Flask with WTForms, a flexible form validation and rendering library.
-Flask-SQLAlchemy: Provides SQLAlchemy integration for Flask, allowing seamless database interactions.
-Flask-Migrate: Offers database migration support for Flask applications using SQLAlchemy.
-Flask-Login: Handles user authentication and session management in FlaskPress.
-Flask-Bcrypt: Provides password hashing functionality for secure storage of user passwords.
-Jinja2: A powerful and flexible template engine used by Flask for rendering HTML templates.
-SQLAlchemy: A popular SQL toolkit and Object-Relational Mapping (ORM) library used by FlaskPress for database management.
-WTForms: A library for building web forms in FlaskPress and handling form validation.
+\Flask-WTF: Integrates Flask with WTForms, a flexible form validation and rendering library.
+\Flask-SQLAlchemy: Provides SQLAlchemy integration for Flask, allowing seamless database interactions.
+\Flask-Migrate: Offers database migration support for Flask applications using SQLAlchemy.
+\Flask-Login: Handles user authentication and session management in FlaskPress.
+\Flask-Bcrypt: Provides password hashing functionality for secure storage of user passwords.
+\Jinja2: A powerful and flexible template engine used by Flask for rendering HTML templates.
+\SQLAlchemy: A popular SQL toolkit and Object-Relational Mapping (ORM) library used by FlaskPress for database management.
+\WTForms: A library for building web forms in FlaskPress and handling form validation.
 
 Make sure to keep your dependencies up to date and consider using a virtual environment to manage your project's dependencies effectively.
 
