@@ -1,4 +1,4 @@
-# Flask Project README
+# FlaskPress
 
 This is a README file for the FlaskPress, a Flask-based blogging application.
 
