@@ -7,6 +7,7 @@ This is a README file for the FlaskPress, a Flask-based blogging application.
 - [Project Overview](#project-overview)
 - [Installation](#installation)
 - [Dependencies](#dependencies)
+- [Usage](#usage)
 - [Contact](#contact)
 
 
