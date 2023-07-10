@@ -47,12 +47,13 @@ source venv/bin/activate
 
 Initialize the Database: FlaskPress uses a database to store blog posts and user information. Initialize the database by running the following commands:
 
-flask db init
-flask db migrate
+flask db init\
+flask db migrate\
 flask db upgrade
-Start the Flask Development Server: Launch the Flask development server with the following command:
 
+Start the Flask Development Server: Launch the Flask development server with the following command:\
 flask run
+
 Access FlaskPress: Open your web browser and visit http://localhost:5000 to access FlaskPress locally. You should see the FlaskPress homepage.
 
 That's it! FlaskPress is now installed and running on your local development environment. You can explore the features, customize the application, and begin creating your own personalized blog.
