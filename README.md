@@ -15,7 +15,7 @@ This is a README file for the FlaskPress, a Flask-based blogging application.
 
 FlaskPress is a Flask-based blogging application that enables users to create and manage their own personalized blogs. With a focus on simplicity and efficiency, FlaskPress offers an intuitive user interface, secure account management, and built-in search functionality.
 
-Powered by Flask, a lightweight and flexible web framework, FlaskPress provides a solid foundation for developing a customizable and high-performing blogging platform. It empowers both beginners and experienced bloggers to express their thoughts, ideas, and stories with ease.
+Powered by Flask, a lightweight and flexible web framework, FlaskPress provides a solid foundation for developing ad high-performing blogging platform. It empowers both beginners and experienced bloggers to express their thoughts, ideas, and stories with ease.
 
 Key Features:
 
@@ -32,9 +32,9 @@ Clone the Repository: Begin by cloning the FlaskPress repository from GitHub usi
 
 git clone https://github.com/your-username/flaskpress.git
 
-Navigate to the Project Directory: Move into the project directory using the following command:
+Navigate to the Project Directory: Move into the project directory using the following command:\
+cd blog
 
-cd blog\
 Create and Activate a Virtual Environment (optional but recommended): It is recommended to use a virtual environment to isolate the project dependencies. Run the following commands to create and activate a virtual environment:
 
 For Windows:
