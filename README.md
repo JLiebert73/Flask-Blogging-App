@@ -19,11 +19,11 @@ Powered by Flask, a lightweight and flexible web framework, FlaskPress provides 
 
 Key Features:
 
-User-Friendly Interface: FlaskPress offers an intuitive interface that makes it easy to create, publish, and manage blog posts.
-Secure Account Management: User accounts and passwords are securely stored and protected using industry-standard encryption.
-Built-in Search Functionality: FlaskPress includes a search feature to help readers discover specific content within the blog.
-Customizability: FlaskPress allows users to personalize their blog's appearance and settings to reflect their unique style.
-FlaskPress aims to provide a seamless and efficient blogging experience, allowing users to focus on sharing their content and engaging with their audience.
+User-Friendly Interface: FlaskPress offers an intuitive interface that makes it easy to create, publish, and manage blog posts.\
+Secure Account Management: User accounts and passwords are securely stored and protected using industry-standard encryption.\
+Built-in Search Functionality: FlaskPress includes a search feature to help readers discover specific content within the blog.\
+Customizability: FlaskPress allows users to personalize their blog's appearance and settings to reflect their unique style.\
+FlaskPress aims to provide a seamless and efficient blogging experience, allowing users to focus on sharing their content and engaging with their audience.\
 
 ## Installation
 
