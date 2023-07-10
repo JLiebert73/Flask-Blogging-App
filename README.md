@@ -34,7 +34,7 @@ git clone https://github.com/your-username/flaskpress.git
 
 Navigate to the Project Directory: Move into the project directory using the following command:
 
-cd blog
+cd blog\
 Create and Activate a Virtual Environment (optional but recommended): It is recommended to use a virtual environment to isolate the project dependencies. Run the following commands to create and activate a virtual environment:
 
 For Windows:
