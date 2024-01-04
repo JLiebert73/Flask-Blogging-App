@@ -1,41 +1,80 @@
 {% extends "layout.html" %}
-
 {% block content %}
-    {% for post in posts %}
-        <article class="media content-section">
-            <div class="media-body">
-                <div class="article-metadata">
-                    <div class="d-flex justify-content-start align-items-center">
-                        <img class="account-img rounded-circle-sm" src="{{ url_for('static', filename='Images/' + post.author.image_file) }}" alt="User Image">
-                        <div class="ml-2">
-                            <h2> <a class="article-title" href="#">{{ post.title }}</a></h2>
-                            <span>by <a href="{{ url_for('user', post_id=post.id) }}">{{ post.author.username }}</a></span>
-                            <br>
-                            <small class="text-muted">on {{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+    <div class="content-section">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">
+                    Update your account
+                </legend>
+                <div class="form-group">
+                    {{ form.username.label(class="form-control-label") }}
+                    {% if form.username.errors %}
+                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
                         </div>
-                    </div>
+                    {% else %}
+                        {{ form.username(class="form-control form-control-lg") }}
+                    {% endif %}
                 </div>
-                <p class="article-content">{{ post.content }}</p>
-
-                <!-- Dropdown menu with comments and a form for adding comments -->
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ post.comments|length }} comments
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><form class="dropdown-item" method="POST" action="{{ url_for('comment', post_id=post.id) }}">
-                        {{ comment_form.hidden_tag() }}
-                        {{ comment_form.content.label(class="form-control-label") }}
-                        {{ comment_form.content(class="form-control") }}
-                        {{ comment_form.submit(class="btn btn-primary") }}
-                    </form>
-                        {% for comment in post.comments %}
-                        <p class="dropdown-item">{{ comment.content }} - {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</p>
-                        {% endfor %}
-                        
-                    </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
                 </div>
-                
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.confirm_password.label(class="form-control-label") }}
+                    {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.confirm_password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.confirm_password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.profile_picture.label(class="form-control-label") }}
+                    {{ form.profile_picture(class="form-control-file") }}
+                    {% if form.profile_picture.errors %}
+                        <div class="invalid-feedback">
+                            {% for error in form.profile_picture.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info")}}
             </div>
-        </article>
-    {% endfor %}
+        </form>
+    </div>
+    
 {% endblock content %}
