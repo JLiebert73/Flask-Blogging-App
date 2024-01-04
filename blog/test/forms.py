@@ -58,3 +58,7 @@ class FindForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
     title=StringField('Title', validators=[DataRequired(), Length(min=0, max=40)])
     submit=SubmitField('Post!')
+
+class CommentForm(FlaskForm):
+    content = TextAreaField('Comment', validators=[DataRequired()])
+    submit = SubmitField('Submit Comment')
