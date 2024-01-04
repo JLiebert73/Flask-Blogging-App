@@ -6,7 +6,7 @@
             <div class="media-body">
                 <div class="article-metadata">
                     <div class="d-flex justify-content-start align-items-center">
-                        <img class="account-img rounded-circle-lg" src="{{ url_for('static', filename='Images/' + post.author.image_file) }}" alt="User Image">
+                        <img class="account-img rounded-circle-sm" src="{{ url_for('static', filename='Images/' + post.author.image_file) }}" alt="User Image">
                         <div class="ml-2">
                             <h2> <a class="article-title" href="#">{{ post.title }}</a></h2>
                             <span>by <a href="{{ url_for('user', post_id=post.id) }}">{{ post.author.username }}</a></span>
@@ -16,6 +16,25 @@
                     </div>
                 </div>
                 <p class="article-content">{{ post.content }}</p>
+
+                <!-- Dropdown menu with comments and a form for adding comments -->
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ post.comments|length }} comments
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><form class="dropdown-item" method="POST" action="{{ url_for('comment', post_id=post.id) }}">
+                        {{ comment_form.hidden_tag() }}
+                        {{ comment_form.content.label(class="form-control-label") }}
+                        {{ comment_form.content(class="form-control") }}
+                        {{ comment_form.submit(class="btn btn-primary") }}
+                    </form>
+                        {% for comment in post.comments %}
+                        <p class="dropdown-item">{{ comment.content }} - {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+                
             </div>
         </article>
     {% endfor %}
