@@ -1,8 +1,8 @@
 from flask import render_template, flash, redirect, url_for
 from flask_login import login_user, current_user, logout_user
 from test import app, db, bcrypt
-from test.forms import RegistrationForm, LoginForm, AccountUpdateForm, ContentForm, FindForm
-from test.models import User, Post
+from test.forms import RegistrationForm, LoginForm, AccountUpdateForm, ContentForm, FindForm, CommentForm
+from test.models import User, Post, Comment
 from test import url_stack
 from datetime import datetime
 from sqlalchemy import or_
@@ -15,7 +15,8 @@ from flask import request
 @app.route("/")
 def home():
     posts = Post.query.order_by(Post.date_posted.desc()).all()
-    return render_template('home.html', posts=posts)
+    comment_form = CommentForm()
+    return render_template('home.html', posts=posts, comment_form=comment_form)
 
 
 # About route
@@ -154,7 +155,7 @@ def search():
     query = request.args.get('query')
     search_option = request.args.get('search_option')
     if search_option == 'username':
-        users = User.query.filter_by(username=query).all()
+        users = User.query.filter(User.username.like(f'%{query}%')).all()
         if users is None:
             flash(f'No such user exists', 'danger')
             return redirect(url_for('search'))
@@ -165,7 +166,7 @@ def search():
         flash(f'No such user exists', 'danger')
         return redirect(url_for('search'))
     elif search_option == 'title':
-        posts = Post.query.filter_by(title=query).all()
+        posts = Post.query.filter(Post.title.like(f'%{query}%')).all()
         if posts:
             return view_post(posts)
         else:
@@ -176,8 +177,20 @@ def search():
 
 
 # View post route
+@app.route('/view_post')
 def view_post(posts):
-    return render_template('view_post.html', posts=posts)
+    comment_form = CommentForm()
+    return render_template('view_post.html', posts=posts, comment_form=comment_form)
+
+# View post route
+@app.route('/view_post_1/<int:post_id>')
+def view_post_1(post_id):
+    post = Post.query.get_or_404(post_id)
+    posts = [post]  # Wrap the post in a list to match the existing template structure
+    comment_form = CommentForm()
+    return render_template('view_post.html', posts=posts, comment_form=comment_form)
+
+
 
 
 # Delete post route
@@ -220,3 +233,27 @@ def user(post_id):
     posts = Post.query.filter_by(author=user).all()
     imagefile = url_for('static', filename='Images/' + user.image_file)
     return render_template('other_account.html', user=user, posts=posts, title=user.username+"'s Account", image_file=imagefile)
+
+
+@app.route('/comment/<int:post_id>', methods=['GET', 'POST'])
+def comment(post_id):
+    post = Post.query.get_or_404(post_id)
+    form = CommentForm()
+
+    if form.validate_on_submit():
+        comment = Comment(content=form.content.data, user_id=current_user.id, post_id=post_id)
+        db.session.add(comment)
+        db.session.commit()
+        flash('Your comment has been added!', 'success')
+        return redirect(url_for('home'))
+
+    return render_template('home.html')
+
+
+@app.route('/like_post/<int:post_id>', methods=['POST'])
+def like_post(post_id):
+    post = Post.query.get_or_404(post_id)
+    post.likes = post.likes + 1
+    db.session.commit()
+    flash('Post liked!', 'success')
+    return redirect(url_for('home'))
